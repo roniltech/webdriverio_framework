@@ -1,6 +1,14 @@
 {
-    "login_T001" : {
+    "login_T001" : [{
         "username" : "tomsmith",
         "password" : "SuperSecretPassword!"
-    }
+        },
+        {
+            "username" : "tomcruise",
+            "password" : "SimplePassword!"
+        },
+        {
+            "username" : "willsmith",
+            "password" : "SecretPassword!"
+        }
 }

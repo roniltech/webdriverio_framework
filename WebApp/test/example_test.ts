@@ -22,16 +22,19 @@ suite('My Login application', () => {
         await browser.refresh();
     })
 
-    test('should login with valid credentials', async () => {
-        allureReporter.addTestId("T001");
-        allureReporter.addDescription("Verify login", 'text');
-
-        let username = user_data.login_T001.username;
-        let password = user_data.login_T001.password;
-        await LoginPage.login(username, password);
-
-        let login_result = await LoginPage.login_success_message();
-        expect(login_result).toBe(true);
-        
-    });
+    user_data.login_T001.forEach((data, index) => {
+        test(`Should login with valid credentials -> Iteration: ${index}`, async () => {
+            allureReporter.addTestId("T001");
+            allureReporter.addDescription("Verify login", 'text');
+    
+            let username = data.username;
+            let password = data.password;
+            await LoginPage.login(username, password);
+    
+            let login_result = await LoginPage.login_success_message();
+            expect(login_result).toBe(true);
+            
+        });
+    })
+    
 });
